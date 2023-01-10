@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" formControlName="nome" id="nome" autocomplete="off">
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="quantidade" class="form-label">Quantidade</label>
+        <input type="number" step=1 class="form-control" formControlName="quantidade" id="quantidade" autocomplete="off" >
+        <div *ngIf="form.get('quantidade')?.errors?.['pattern']" class="alert alert-danger">
+            Apenas numeros inteiros!
+        </div>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="valor" class="form-label">Valor</label>
+        <input type="number" class="form-control" formControlName="valor" id="valor" autocomplete="off">
+    </div>
+    <br>
+
+    <input type="submit" value="Salvar" class="btn btn-primary">
+</form>
